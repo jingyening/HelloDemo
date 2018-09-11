@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="test_dimen_value">1dp</dimen>
+
+    <dimen name="refresh_header_height_twitter">114dp</dimen>
+    <dimen name="dimen_margin_60">60dp</dimen>
+    <dimen name="load_more_footer_height_twitter">50dp</dimen>
+
+</resources>

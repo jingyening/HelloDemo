@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+println 'This is executed during the configuration phase1111111.'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.bruce.jing.hello.demo"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField("boolean", "LOG_DEBUG", "false")//输出debug级别以上的log
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+boolean isFileExist(){
+    File file = new File(rootProject.getRootDir().path+"/test.txt")
+    logger.log(LogLevel.ERROR, "filepath = "+file.getPath()+" isFileExist = "+file.exists())
+
+//    File file2 = new File(rootProject.buildFile.path)
+//    logger.log(LogLevel.ERROR, "filepath2 = "+file2.getPath()+" isFileExist = "+file2.exists())
+    return file.exists()
+}
+
+dependencies {
+    if (isFileExist()) {
+        logger.log(LogLevel.ERROR, "dependencies fileexist!!!!")
+    } else {
+        logger.log(LogLevel.ERROR, "dependencies fileexist???")
+    }
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.android.support:recyclerview-v7:28.0.0-alpha3'
+    implementation 'com.android.support:support-v4:28.0.0-alpha3'
+}

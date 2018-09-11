@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bruce.jing.hello.demo.widget.MySimpleCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 下拉刷新view 容器-->
+    <FrameLayout
+        android:id="@+id/pullRefreshContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/pull_refresh_header"
+            layout="@layout/layout_refresh_header" />
+
+    </FrameLayout>
+    <!--头部view 容器-->
+    <FrameLayout
+        android:id="@+id/headContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="头！！！！"/>            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="头！！！！"/>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <!-- 悬停view容器 -->
+
+    <FrameLayout
+        android:id="@+id/hoverContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+    <!--悬停容器下面的 布局容器-->
+
+    <FrameLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+</com.bruce.jing.hello.demo.widget.MySimpleCoordinatorLayout>
