@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_face_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FBFBFB">
+
+
+    <com.uxin.live.chat.emoji.widget.EmojiIconScrollTabBar
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"/>
+
+
+    <com.uxin.live.chat.emoji.widget.EmojiIconIndicatorView
+        android:id="@+id/indicator_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tab_bar"
+        android:layout_marginBottom="8dp" />
+
+
+    <com.uxin.live.chat.emoji.widget.EmojiIconPagerView
+        android:id="@+id/pager_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/indicator_view"
+        android:layout_below="@id/view_divider"/>
+
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentTop="true"
+        android:background="#CFCFCF" />
+
+
+</RelativeLayout>

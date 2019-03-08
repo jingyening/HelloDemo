@@ -7,10 +7,11 @@
     tools:context=".MainActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rlv_mainPage"
+        android:id="@+id/rlv_test_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp">
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#88880000">
 
     </android.support.v7.widget.RecyclerView>
 

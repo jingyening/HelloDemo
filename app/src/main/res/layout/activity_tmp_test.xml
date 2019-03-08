@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--
+tools:context="activity name"这一句不会被打包进APK。
+只是ADT的Layout Editor在你当前的Layout文件里面设置对应的渲染上下文，说明你当前的Layout所在的渲染上下文是activity name对应的那个activity，
+如果这个activity在manifest文件中设置了Theme，那么ADT的Layout Editor会根据这个Theme来渲染你当前的Layout。
+就是说如果你设置的MainActivity设置了一个Theme.Light（其他的也可以），那么你在可视化布局管理器里面看到的背景阿控件阿什么的就应该是Theme.Light的样子。
+仅用于给你看所见即所得的效果而已。
+-->
+
+
+    <RelativeLayout
+        android:id="@+id/thumb111"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:scaleType="fitCenter">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_gradient_black">
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_layout"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sijiali222"/>
+        </FrameLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/roundCornerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="-20dp"
+            android:layout_below="@id/fl_layout"
+            android:background="@drawable/bg_round_corner">
+            <TextView
+                android:id="@+id/testTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+        <com.bruce.jing.hello.demo.widget.view.OnlineAvatarView2
+            android:id="@+id/onlineAvatarView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/roundCornerLayout"
+            android:layout_marginTop="20dp"
+            android:background="#88ff0000">
+        </com.bruce.jing.hello.demo.widget.view.OnlineAvatarView2>
+
+    </RelativeLayout>
+
+</RelativeLayout>

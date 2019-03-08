@@ -1,81 +1,88 @@
 package com.bruce.jing.hello.demo;
 
-import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-import com.bruce.jing.hello.demo.java.Test;
-import com.bruce.jing.hello.demo.java.concurrent.lock.TestLock;
-import com.bruce.jing.hello.demo.util.log.JLogUtil;
+import com.bruce.jing.hello.demo.adapter.BaseRecyclerView;
+import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
+import com.bruce.jing.hello.demo.util.system.DeviceUtil;
 
-import tmp.TmpTest;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import tmp.TmpTestActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, BaseRecyclerView.OnItemClickListener{
 
     private static final String LOG_TAG = "MainActivity";
 
-    private Object mObject = new Object();
+
+    private RecyclerView mRecyclerView;
+    private SimpleItemAdapter mAdapter;
+
+    public static final String[] sData = {
+          "java",
+          "test",
+          "widget",
+          "view",
+          "animation"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        DeviceUtil.setStatusBarTransparent(this);
         setContentView(R.layout.activity_main);
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        int width = metrics.widthPixels;
-        int height = metrics.heightPixels;
-        final float density = metrics.density;
-        int dpi = metrics.densityDpi;
-        Log.d("brucetest","DisplayMetrics = "+ metrics.toString());
-        float dimenValue = getResources().getDimension(R.dimen.test_dimen_value);
-        Log.d("brucetest","dimenValue = "+dimenValue);
-        final ImageView iv = findViewById(R.id.imageView);
 
-        iv.setOnClickListener(new View.OnClickListener() {
+        mRecyclerView = findViewById(R.id.rlv_mainPage);
 
-            @Override
-            public void onClick(View view) {
-                TestLock.testAwaitAndCountDown();
-                JLogUtil.d(MainActivity.class,Integer.toBinaryString(-38));
-            }
-        });
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(llm);
+
+        RecyclerView.ItemDecoration decoration = new RecyclerView.ItemDecoration() {
+        };
+        mRecyclerView.addItemDecoration(decoration);
+        initData();
+    }
+
+    private void initData() {
+        List<String> data = Arrays.asList(sData);
+        mAdapter = new SimpleItemAdapter(data);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setItemClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 
-    private boolean isScaleUp;
+    @Override
+    public void onItemClick(int position, View itemView) {
+        switch (position) {
+            case 0:
 
-    private void scaleUpPhoto(ImageView view) {
-//        Matrix matrix = new Matrix();
-//        int dw = view.getDrawable().getIntrinsicWidth();
-//        int dh = view.getDrawable().getIntrinsicHeight();
-//
-//        matrix.setTranslate(-dw/2,-dh/2);
-//        matrix.postScale(1.2f, 1.2f, dw / 2, dh / 2);
-//        view.setImageMatrix(matrix);
-        view.setScaleX(1.2f);
-        view.setScaleY(1.2f);
-        isScaleUp = true;
+                break;
+            case 1:
+                TmpTestActivity.launch(this);
+                break;
+            case 2:
+
+                break;
+            case 3:
+                ViewDemoActivity.launch(this);
+                break;
+            case 4:
+
+                break;
+            default:
+
+                break;
+        }
     }
-
-    private void scaleDownPhoto(ImageView view) {
-//        Matrix matrix = new Matrix(view.getImageMatrix());
-//        int dw = view.getDrawable().getIntrinsicWidth();
-//        int dh = view.getDrawable().getIntrinsicHeight();
-//        matrix.setTranslate(-dw/2,-dh/2);
-//        matrix.postScale(1f, 1f, dw / 2, dh / 2);
-//        view.setImageMatrix(matrix);
-        view.setScaleX(1f);
-        view.setScaleY(1f);
-        isScaleUp = false;
-    }
-
 }

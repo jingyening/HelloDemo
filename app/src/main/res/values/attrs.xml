@@ -32,5 +32,16 @@
     </declare-styleable>
 
 
+    <!--表情面板-->
+    <declare-styleable name="EmojiIconPanel">
+        <attr name="bigEmojiIconRows" format="integer"/>
+        <attr name="emojiIconColumns" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ChatExtendPanel">
+        <attr name="numColumns" format="integer"/>
+    </declare-styleable>
+
+
 
 </resources>

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bruce.jing.hello.demo">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,10 +21,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CustomCoordinatorActivity"
+        <activity
+            android:name=".CustomCoordinatorActivity"
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name="tmp.TmpTestActivity" />
+        <activity
+            android:name="tmp.TmpTestActivity2"
+            android:process=":sub" />
+        <activity android:name="tmp.TmpTestActivity3" />
+        <activity android:name=".ViewDemoActivity" />
+        <activity android:name=".fragment.FragmentContainerActivity" />
     </application>
 
 </manifest>

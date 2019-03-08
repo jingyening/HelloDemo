@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.Window;
 import android.widget.FrameLayout;
 
-import com.bruce.jing.hello.demo.adapter.SimpeItemAdapter;
+import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
 import com.bruce.jing.hello.demo.util.system.DeviceUtil;
 import com.bruce.jing.hello.demo.widget.MySimpleCoordinatorLayout;
 
@@ -56,7 +56,7 @@ public class CustomCoordinatorActivity extends AppCompatActivity {
 
 
 
-        SimpeItemAdapter adapter = new SimpeItemAdapter(listData);
+        SimpleItemAdapter adapter = new SimpleItemAdapter(listData);
         coordinateRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         coordinateRecyclerView.setAdapter(adapter);
 

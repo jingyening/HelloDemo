@@ -25,16 +25,15 @@ import java.util.List;
  * 备注：
  * -------------------------------------
  */
-public class SimpeItemAdapter extends RecyclerView.Adapter<SimpeItemAdapter.SimpleViewHolder> {
+public class SimpleItemAdapter extends BaseRecyclerView<String> {
 
 
     private List<String> mDatas = new ArrayList<>();
 
 
-    public SimpeItemAdapter(List<String> data) {
+    public SimpleItemAdapter(List<String> data) {
         if (data != null) {
             mDatas = data;
-
         }
 
     }
@@ -50,15 +49,22 @@ public class SimpeItemAdapter extends RecyclerView.Adapter<SimpeItemAdapter.Simp
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SimpleViewHolder simpleViewHolder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+        super.onBindViewHolder(viewHolder,position);
+        SimpleViewHolder simpleViewHolder = (SimpleViewHolder)viewHolder;
         simpleViewHolder.textView.setText(mDatas.get(position));
-
     }
+
 
 
     @Override
     public int getItemCount() {
         return mDatas.size();
+    }
+
+    @Override
+    public void onItemClickImpl(int position, RecyclerView.ViewHolder holder) {
+
     }
 
 
