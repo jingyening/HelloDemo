@@ -40,29 +40,14 @@ tools:context="activity name"这一句不会被打包进APK。
                 android:src="@drawable/sijiali222"/>
         </FrameLayout>
 
-
-        <RelativeLayout
-            android:id="@+id/roundCornerLayout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="-20dp"
-            android:layout_below="@id/fl_layout"
-            android:background="@drawable/bg_round_corner">
-            <TextView
-                android:id="@+id/testTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </RelativeLayout>
-        <com.bruce.jing.hello.demo.widget.view.OnlineAvatarView2
+        <com.bruce.jing.hello.demo.widget.view.OnlineAvatarView
             android:id="@+id/onlineAvatarView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/roundCornerLayout"
+            android:layout_below="@id/fl_layout"
             android:layout_marginTop="20dp"
             android:background="#88ff0000">
-        </com.bruce.jing.hello.demo.widget.view.OnlineAvatarView2>
+        </com.bruce.jing.hello.demo.widget.view.OnlineAvatarView>
 
     </RelativeLayout>
 

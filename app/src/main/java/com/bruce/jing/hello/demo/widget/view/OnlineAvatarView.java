@@ -1,7 +1,6 @@
 package com.bruce.jing.hello.demo.widget.view;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -27,7 +26,7 @@ import static android.view.Gravity.CENTER;
  * 备注：
  * -------------------------------------
  */
-public class OnlineAvatarView2 extends ViewGroup {
+public class OnlineAvatarView extends ViewGroup {
 
     /**
      * 压住的宽度
@@ -43,15 +42,15 @@ public class OnlineAvatarView2 extends ViewGroup {
      */
     private int mItemLength;
 
-    public OnlineAvatarView2(Context context) {
+    public OnlineAvatarView(Context context) {
         this(context, null);
     }
 
-    public OnlineAvatarView2(Context context, AttributeSet attrs) {
+    public OnlineAvatarView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public OnlineAvatarView2(Context context, AttributeSet attrs, int defStyleAttr) {
+    public OnlineAvatarView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mItemLength =  CommonUtil.dip2px(context, 32);
         mPressedWidth = CommonUtil.dip2px(context, 6);
@@ -123,6 +122,15 @@ public class OnlineAvatarView2 extends ViewGroup {
         textView.setBackgroundResource(R.drawable.circle_white);
         textView.setText("9");
         return textView;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        /**
+         * 不计算子view高度，measureheight为0，textview内容不能垂直居中。
+         */
+        measureChildren(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override

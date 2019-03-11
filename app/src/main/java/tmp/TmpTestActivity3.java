@@ -45,8 +45,6 @@ public class TmpTestActivity3 extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.imageView:
                 break;
-            case R.id.roundCornerLayout:
-                break;
             default:
                 break;
         }

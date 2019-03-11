@@ -66,11 +66,6 @@ public class TmpTestActivity2 extends AppCompatActivity implements View.OnClickL
             case R.id.imageView:
                 setResult(Activity.RESULT_OK, new Intent());
                 break;
-            case R.id.roundCornerLayout:
-                GradientDrawable drawable = (GradientDrawable) v.getBackground();
-                drawable.setStroke(5, Color.RED);
-                drawable.setColor(Color.GREEN);
-                break;
             default:
                 break;
         }

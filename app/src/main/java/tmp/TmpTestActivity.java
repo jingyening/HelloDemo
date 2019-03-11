@@ -2,35 +2,23 @@ package tmp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.bruce.jing.hello.demo.MainActivity;
 import com.bruce.jing.hello.demo.R;
-import com.bruce.jing.hello.demo.java.concurrent.lock.TestLock;
 import com.bruce.jing.hello.demo.util.StringUtils;
 import com.bruce.jing.hello.demo.util.log.JLogUtil;
 import com.bruce.jing.hello.demo.util.system.DeviceUtil;
-import com.bruce.jing.hello.demo.widget.view.OnlineAvatarView2;
+import com.bruce.jing.hello.demo.widget.view.OnlineAvatarView;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import javax.xml.transform.dom.DOMLocator;
 
 public class TmpTestActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -59,13 +47,9 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 //        float dimenValue = getResources().getDimension(R.dimen.test_dimen_value);
 //        Log.d("brucetest","dimenValue = "+dimenValue);
         final ImageView iv = findViewById(R.id.imageView);
-        TextView textView = (TextView) findViewById(R.id.testTV);
-        textView.setText("123\u005cn456");
 
         iv.setOnClickListener(this);
 
-        RelativeLayout roundCornerLayout = findViewById(R.id.roundCornerLayout);
-        roundCornerLayout.setOnClickListener(this);
 
         JLogUtil.d("brucetest"," b = "+ Build.BRAND +" v = "+Build.VERSION.SDK_INT+" "+Build.MODEL);
 
@@ -78,12 +62,14 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
         JLogUtil.d("brucetest","time = "+time);
         JLogUtil.d("brucetest","date = "+date);
 
-        OnlineAvatarView2 avatarView2 = findViewById(R.id.onlineAvatarView2);
         List<Object> data = new ArrayList<>();
         for (int i = 0; i < 20; i++ ){
             data.add(new Object());
         }
+
+        OnlineAvatarView avatarView2 = findViewById(R.id.onlineAvatarView2);
         avatarView2.setData(data);
+
 
 
     }
@@ -139,14 +125,8 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 //                JLogUtil.d(TmpTestActivity.class,Integer.toBinaryString(-38));
 
                 TmpTestActivity2.launch(this,1);
-
-
                 break;
-            case R.id.roundCornerLayout:
-                GradientDrawable drawable = (GradientDrawable) v.getBackground();
-                drawable.setStroke(5, Color.RED);
-                drawable.setColor(Color.GREEN);
-                break;
+
             default:
                 break;
         }
