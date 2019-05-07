@@ -43,5 +43,18 @@
     </declare-styleable>
 
 
+    <declare-styleable name="IndicatorView">
+        <attr name="dot_color" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="ImageViewForGQ">
+        <attr name="pressColor" format="color"/>
+        <attr name="pressColorMode" format="integer"/>
+        <attr name="disableColor" format="color"/>
+        <attr name="disableColorMode" format="integer"/>
+    </declare-styleable>
+
+
 
 </resources>

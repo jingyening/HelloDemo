@@ -19,7 +19,7 @@ tools:context="activity name"这一句不会被打包进APK。
         android:id="@+id/thumb111"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="#ffff00"
         android:scaleType="fitCenter">
         <FrameLayout
             android:layout_width="match_parent"
@@ -31,13 +31,29 @@ tools:context="activity name"这一句不会被打包进APK。
             android:id="@+id/fl_layout"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            android:background="@drawable/sijiali222">
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/sijiali222"/>
+                android:src="@drawable/sijiali222"
+                android:visibility="gone"/>
+
+            <com.bruce.jing.hello.demo.widget.view.BlurView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/music_album_playbutton_3"
+                android:visibility="visible"/>
+
+            <com.wonderkiln.blurkit.BlurLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/music_album_playbutton_3"
+                android:visibility="gone">
+            </com.wonderkiln.blurkit.BlurLayout>
+
         </FrameLayout>
 
         <com.bruce.jing.hello.demo.widget.view.OnlineAvatarView

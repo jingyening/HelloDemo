@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="zi">#FF00FF</color>
+    <color name="qing">#00FFFF</color>
+    <color name="hunag">#FFFF00</color>
+    <color name="hong">#FF0000</color>
+    <color name="lv">#00FF00</color>
+    <color name="lan">#0000FF</color>
 </resources>

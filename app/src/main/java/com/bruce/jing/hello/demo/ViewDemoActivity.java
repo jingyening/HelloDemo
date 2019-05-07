@@ -13,6 +13,7 @@ import com.bruce.jing.hello.demo.adapter.BaseRecyclerView;
 import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
 import com.bruce.jing.hello.demo.fragment.EmojiFragment;
 import com.bruce.jing.hello.demo.fragment.FragmentContainerActivity;
+import com.bruce.jing.hello.demo.fragment.IndicatorFragment;
 import com.bruce.jing.hello.demo.fragment.RippleFragment;
 
 import java.util.Arrays;
@@ -35,7 +36,8 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
     private static final String[] sData = {
             "波纹",
             "进度条",
-            "表情"
+            "表情",
+            "指示条"
     };
 
 
@@ -78,6 +80,9 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
                 break;
             case 2:
                 FragmentContainerActivity.startFragment(this, EmojiFragment.class, null);
+                break;
+            case 3:
+                FragmentContainerActivity.startFragment(this, IndicatorFragment.class,null);
                 break;
         }
     }
