@@ -9,7 +9,7 @@
                 android:angle="270"
                 android:startColor="#ff000000"
                 android:endColor="#40000000" />
-bbb        </shape>
+        </shape>
     </item>
 
 </layer-list>

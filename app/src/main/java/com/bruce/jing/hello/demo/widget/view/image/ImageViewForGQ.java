@@ -53,12 +53,12 @@ public class ImageViewForGQ extends android.support.v7.widget.AppCompatImageView
     public ImageViewForGQ(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         final TypedArray a = context.obtainStyledAttributes(
-                attrs, R.styleable.ImageViewForGQ);
-        mPressColor = a.getColor(R.styleable.ImageViewForGQ_pressColor, DEFAULT_PRESS_COLOR);
-        mDisableColor = a.getColor(R.styleable.ImageViewForGQ_disableColor, DEFAULT_DISABLE_COLOR);
-        int pressColorType = a.getInteger(R.styleable.ImageViewForGQ_pressColorMode, 1);
+                attrs, R.styleable.PressTintImageView);
+        mPressColor = a.getColor(R.styleable.PressTintImageView_pressColor, DEFAULT_PRESS_COLOR);
+        mDisableColor = a.getColor(R.styleable.PressTintImageView_disableColor, DEFAULT_DISABLE_COLOR);
+        int pressColorType = a.getInteger(R.styleable.PressTintImageView_pressColorMode, 1);
         mPressMode = getDuffModeByTye(pressColorType);
-        int disableColorType = a.getInteger(R.styleable.ImageViewForGQ_disableColorMode, 1);
+        int disableColorType = a.getInteger(R.styleable.PressTintImageView_disableColorMode, 1);
         mDisableMode = getDuffModeByTye(disableColorType);
         a.recycle();
     }

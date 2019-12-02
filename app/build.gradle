@@ -1,15 +1,46 @@
 apply plugin: 'com.android.application'
-println 'This is executed during the configuration phase1111111.'
+println 'This is executed during the configuration phase project info = '+this.getProject().getClass().getSuperclass()
+println 'This is executed during the configuration phase gradle info =  '+this.getProject().getGradle().getClass().getSuperclass()
+
+//get Gradle Object
+this.getProject().getGradle().addBuildListener(new BuildListener() {
+    @Override
+    void buildStarted(Gradle gradle) {
+        println "Project buildStarted"
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+        println "Project settingsEvaluated"
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+        println "Project projectsLoaded"
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+        println "Project projectsEvaluated"
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        println "Project buildFinished"
+    }
+})
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.bruce.jing.hello.demo"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField("boolean", "LOG_DEBUG", "false")//输出debug级别以上的log
+        renderscriptTargetApi 24
+        renderscriptSupportModeEnabled true
 
     }
     buildTypes {
@@ -34,7 +65,7 @@ dependencies {
     if (isFileExist()) {
         logger.log(LogLevel.ERROR, "dependencies fileexist!!!!")
     } else {
-        logger.log(LogLevel.ERROR, "dependencies fileexist???")
+        logger.log(LogLevel.ERROR, "dependencies file not exist???")
     }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
@@ -45,4 +76,29 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.android.support:recyclerview-v7:28.0.0-alpha3'
     implementation 'com.android.support:support-v4:28.0.0-alpha3'
+    implementation 'com.wonderkiln:blurkit:1.0.0'
+}
+
+//task copyApk(type: Copy){
+//    mkdir("gradle_test/copy/apk")
+//    from("build/outputs/apk/debug")
+//    into("gradle_test/copy/apk")
+//    include("app-debug.apk")
+//    println("jing copyApk")
+//}
+
+/**
+ * DSL 已经初始化了Copy类的对象，直接使用即可
+ */
+getGradle().buildFinished {
+    println(" after build finish execute")
+    copy {
+        mkdir("gradle_test/copy/apk/test")
+//        from("build/outputs/apk")
+//        into("gradle_test/copy/apk")
+        from("build/outputs/apk/debug")
+        into("gradle_test/copy/apk")
+        include("app-debug.apk","app-release-unsigned.apk")
+        println("jing copyApk")
+    }
 }

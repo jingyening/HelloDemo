@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ff0000ff">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp">
 
         <com.bruce.jing.hello.demo.widget.view.indicator.arc.IndicatorView3
-            android:id="@+id/indicator_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </com.bruce.jing.hello.demo.widget.view.indicator.arc.IndicatorView3>
+            android:id="@+id/indicator_view1"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            app:shape_type="half_oval"></com.bruce.jing.hello.demo.widget.view.indicator.arc.IndicatorView3>
+
+
+        <com.bruce.jing.hello.demo.widget.view.indicator.arc.IndicatorView3
+            android:id="@+id/indicator_view2"
+            android:layout_width="660dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/indicator_view1"
+            app:shape_type="oval"></com.bruce.jing.hello.demo.widget.view.indicator.arc.IndicatorView3>
 
     </RelativeLayout>
-
-
 
 
 </RelativeLayout>

@@ -2,13 +2,19 @@ package tmp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bruce.jing.hello.demo.R;
 import com.bruce.jing.hello.demo.util.StringUtils;
@@ -24,8 +30,10 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 
     private static final String LOG_TAG = "MainActivity";
 
-    private Object mObject = new Object();
+    private static final String TAG = "TmpTestActivity";
 
+    private Object mObject = new Object();
+    TextView textView;
 
     public static void launch(Context context) {
         Intent intent = new Intent();
@@ -71,6 +79,44 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
         avatarView2.setData(data);
 
 
+        textView = findViewById(R.id.textView);
+        TextView songName = findViewById(R.id.tv_player_songname);
+        songName.setText("隐形的纪念 (the hidden version)");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("HelloDemo_MainActivity","TmpTestActivity onResume");
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.d("HelloDemo_MainActivity","TmpTestActivity onWindowFocusChanged hasFocus = "+hasFocus);
+    }
+
+    private static final String TEST_TEXT = "ksjdo说的可否接fjn%%*dsl@@fj、ds测试  12121532圣诞节佛is电脑的你佛山的减肥你受老师的经费都是  是放假哦I小聪明分配我I小品剧似的  学成绩哦is等果果  545 11 87 8 2148132 送豆腐街的身份减速带范德萨 是地府地方弄额我fin分";
+    private static final String TEST_TEXT2 = "";
+    private void testStaticLayout() {
+        String substring = TEST_TEXT2;
+        TextPaint mLrcPaint = new TextPaint();
+        mLrcPaint.setAntiAlias(true);
+        float mCurrentTextSize = 38F;
+        mLrcPaint.setTextSize(mCurrentTextSize);
+        mLrcPaint.setTextAlign(Paint.Align.LEFT);
+        int width = 700;
+        Layout.Alignment align = Layout.Alignment.ALIGN_NORMAL;
+        StaticLayout staticLayout1 = new StaticLayout(substring, mLrcPaint, width, align, 1.2f, 0f, false);
+        int lineCount = staticLayout1.getLineCount();
+        if (lineCount > 2) {
+            int secondLineEnd = staticLayout1.getLineEnd(2);
+            Log.d(TAG,"secondLineEnd = "+secondLineEnd);
+            substring = substring.substring(0, secondLineEnd);
+        }
+        StaticLayout staticLayout = new StaticLayout(substring, mLrcPaint, width, align, 1.2f, 0f, false);
+        Log.d(TAG,"staticLayout height = "+staticLayout.getHeight());
 
     }
 
@@ -124,7 +170,8 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 //                TestLock.testAwaitAndCountDown();
 //                JLogUtil.d(TmpTestActivity.class,Integer.toBinaryString(-38));
 
-                TmpTestActivity2.launch(this,1);
+//                TmpTestActivity2.launch(this,1);
+                testStaticLayout();
                 break;
 
             default:
@@ -133,7 +180,7 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         TmpTestActivity3.launch(this);
     }

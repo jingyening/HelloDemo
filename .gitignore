@@ -5,5 +5,3 @@
 /.idea
 /app/build
 /publish.sh
-/local.properties
-/gradle.properties

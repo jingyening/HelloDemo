@@ -1,5 +1,34 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-println 'This is executed during the configuration phase.'
+println 'This is executed during the configuration phase config info = '+this.getClass().getSuperclass()
+println 'This is executed during the configuration phase gradle info = '+this.getGradle().getClass().getSuperclass()
+println 'This is executed during the configuration phase group info = '+this.getGroup()
+
+getGradle().addBuildListener(new BuildListener() {
+    @Override
+    void buildStarted(Gradle gradle) {
+        println("HelloDemo buildStarted")
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+        println("HelloDemo settingsEvaluated")
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+        println("HelloDemo projectsLoaded")
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+        println("HelloDemo projectsEvaluated")
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        println("HelloDemo buildFinished")
+    }
+})
 buildscript {
     
     repositories {

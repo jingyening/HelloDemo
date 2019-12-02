@@ -1,6 +1,9 @@
 package com.bruce.jing.hello.demo;
 
 import android.app.Application;
+import android.os.Looper;
+import android.util.Log;
+import android.util.Printer;
 
 import com.wonderkiln.blurkit.BlurKit;
 
@@ -10,8 +13,16 @@ import com.wonderkiln.blurkit.BlurKit;
  */
 public class App extends Application {
 
+    private static final String TAG = "App";
+
     @Override
     public void onCreate() {
+//        Looper.getMainLooper().setMessageLogging(new Printer() {
+//            @Override
+//            public void println(String x) {
+//                Log.d(TAG, "### debug performance:" + x);
+//            }
+//        });
         super.onCreate();
         BlurKit.init(this);
     }

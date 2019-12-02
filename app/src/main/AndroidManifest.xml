@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,6 +34,7 @@
         <activity android:name="tmp.TmpTestActivity3" />
         <activity android:name=".ViewDemoActivity" />
         <activity android:name=".fragment.FragmentContainerActivity" />
+        <activity android:name="tmp.EmptyActivity" />
     </application>
 
 </manifest>

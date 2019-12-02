@@ -1,2 +1,29 @@
 include ':app'
-println 'This is executed during the initialization phase.'
+println 'This is executed during the initialization phase.'+this.getSettings().getClass().getSuperclass()
+
+this.getSettings().getGradle().addBuildListener(new BuildListener() {
+    @Override
+    void buildStarted(Gradle gradle) {
+        println "Settings buildStarted"
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+        println "Settings settingsEvaluated"
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+        println "Settings projectsLoaded"
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+        println "Settings projectsEvaluated"
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        println "Settings buildFinished"
+    }
+})

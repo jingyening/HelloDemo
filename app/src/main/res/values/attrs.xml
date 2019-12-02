@@ -48,13 +48,33 @@
     </declare-styleable>
 
 
-    <declare-styleable name="ImageViewForGQ">
+
+    <declare-styleable name="BlurLayout">
+        <attr name="downscaleFactor" format="float" />
+        <attr name="blurRadius" format="integer" />
+        <attr name="fps" format="integer" />
+    </declare-styleable>
+
+
+    <declare-styleable name="IndicatorDotView">
+        <attr name="shape_type" format="enum" >
+            <enum name="half_oval" value="1"/>
+            <enum name="oval" value="2"/>
+        </attr>
+    </declare-styleable>
+
+  <!--  <declare-styleable name="ImageViewForGQ">
+        <attr name="pressColor" format="color"/>
+        <attr name="pressColorMode" format="integer"/>
+        <attr name="disableColor" format="color"/>
+        <attr name="disableColorMode" format="integer"/>
+    </declare-styleable>-->
+
+    <declare-styleable name="PressTintImageView">
         <attr name="pressColor" format="color"/>
         <attr name="pressColorMode" format="integer"/>
         <attr name="disableColor" format="color"/>
         <attr name="disableColorMode" format="integer"/>
     </declare-styleable>
-
-
 
 </resources>

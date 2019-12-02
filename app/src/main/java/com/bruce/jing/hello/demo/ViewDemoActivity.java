@@ -37,7 +37,8 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
             "波纹",
             "进度条",
             "表情",
-            "指示条"
+            "指示条",
+            "按压"
     };
 
 
