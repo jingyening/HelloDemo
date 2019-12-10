@@ -1,10 +1,7 @@
 package com.bruce.jing.hello.demo;
 
 import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -14,21 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.util.Printer;
 import android.view.View;
 
-import com.bruce.jing.hello.demo.adapter.BaseRecyclerView;
+import com.bruce.jing.hello.demo.adapter.BaseRecyclerViewAdapter2;
 import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
 import com.bruce.jing.hello.demo.util.system.DeviceUtil;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import tmp.EmptyActivity;
-import tmp.TmpTestActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, BaseRecyclerView.OnItemClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, BaseRecyclerViewAdapter2.OnItemClickListener{
 
     private static final String TAG = "HelloDemo_MainActivity";
 
@@ -111,8 +105,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case 1:
+                MultiScreenAdapterActivity.launch(this);
 //                TmpTestActivity.launch(this);
-                EmptyActivity.launch(this);
+//                EmptyActivity.launch(this);
                 Log.d(TAG, "onItemClick() called with: position = [" + position + "], itemView = [" + itemView + "]");
 //                Intent intent = new Intent();
 //                intent.setComponent(new ComponentName("com.example.lenovo.test","com.example.lenovo.test.component.TestService"));

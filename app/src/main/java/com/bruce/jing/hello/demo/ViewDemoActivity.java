@@ -9,7 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.bruce.jing.hello.demo.adapter.BaseRecyclerView;
+import com.bruce.jing.hello.demo.adapter.BaseRecyclerViewAdapter;
+import com.bruce.jing.hello.demo.adapter.BaseRecyclerViewAdapter2;
 import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
 import com.bruce.jing.hello.demo.fragment.EmojiFragment;
 import com.bruce.jing.hello.demo.fragment.FragmentContainerActivity;
@@ -30,7 +31,7 @@ import java.util.List;
  * 备注：
  * -------------------------------------
  */
-public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerView.OnItemClickListener {
+public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerViewAdapter2.OnItemClickListener {
 
 
     private static final String[] sData = {

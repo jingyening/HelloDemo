@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_main_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8292BD">
+
+    <!-- 顶部布局  -->
+    <android.support.constraint.Guideline
+        android:id="@+id/top_layout_guideline_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="8dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/top_layout_guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="120dp"
+        app:layout_constraintTop_toTopOf="@id/top_layout_guideline_top" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/top_layout_guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="500dp" />
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="48dp"
+        android:background="#ff0000"
+        app:layout_constraintBottom_toBottomOf="@id/top_layout_guideline_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_layout_guideline_top" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_type_tab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:background="#00ff00"
+        app:layout_constraintBottom_toBottomOf="@id/top_layout_guideline_bottom"
+        app:layout_constraintEnd_toStartOf="@id/iv_search"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/iv_head"
+        app:layout_constraintTop_toTopOf="@id/top_layout_guideline_top"
+        app:layout_constraintWidth_default="wrap" />
+
+    <ImageView
+        android:id="@+id/iv_search"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:background="#0000ff"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/top_layout_guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@id/top_layout_guideline_end"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/rlv_type_tab"
+        app:layout_constraintTop_toTopOf="@id/top_layout_guideline_top" />
+    <!-- 顶部布局  -->
+
+    <!-- 中间布局  -->
+    <!--<include layout="@layout/main_content_layout" />-->
+    <android.support.constraint.Placeholder
+        android:id="@+id/card_container_placeHolder1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintTop_toTopOf="@id/top_layout_guideline_bottom" />
+
+    <android.support.constraint.Placeholder
+        android:id="@+id/card_container_placeHolder2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/pb_minibar_progress"
+        app:layout_constraintHeight_percent="0.1" />
+
+    <FrameLayout
+        android:id="@+id/fl_card_view_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginStart="48dp"
+        android:background="#ffaaff"
+        app:layout_constraintBottom_toTopOf="@id/card_container_placeHolder2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_container_placeHolder1">
+
+    </FrameLayout>
+    <!-- 中间布局  -->
+
+    <!-- 底部布局  -->
+    <ProgressBar
+        android:id="@+id/pb_minibar_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="48dp"
+        android:background="#aaffaa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_play_pause"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="24dp"
+        android:background="#ff0000"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/pb_minibar_progress"
+        app:layout_constraintStart_toStartOf="@id/pb_minibar_progress"
+        app:layout_constraintTop_toTopOf="@id/pb_minibar_progress" />
+
+    <ImageView
+        android:id="@+id/iv_collect_and_cancel"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:background="#00ff00"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/pb_minibar_progress"
+        app:layout_constraintStart_toEndOf="@id/iv_play_pause"
+        app:layout_constraintTop_toTopOf="@id/pb_minibar_progress" />
+
+    <ImageView
+        android:id="@+id/iv_play_list"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:background="#0000ff"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/pb_minibar_progress"
+        app:layout_constraintStart_toEndOf="@id/iv_collect_and_cancel"
+        app:layout_constraintTop_toTopOf="@id/pb_minibar_progress" />
+
+    <TextView
+        android:id="@+id/tv_song_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="24dp"
+        android:gravity="start|center_vertical"
+        android:lineSpacingExtra="48dp"
+        android:text="我是一首歌滴答滴滴答滴滴答滴答滴答滴"
+        android:textColor="#8F000000"
+        android:textSize="32dp"
+        app:layout_constraintBottom_toBottomOf="@id/pb_minibar_progress"
+        app:layout_constraintEnd_toEndOf="@id/pb_minibar_progress"
+        app:layout_constraintStart_toEndOf="@id/iv_play_list"
+        app:layout_constraintTop_toTopOf="@id/pb_minibar_progress" />
+
+    <!-- 底部布局  -->
+
+    <!--测试布局-->
+    <Button
+        android:id="@+id/btn_to_higher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="变高"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_to_shorter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="变矮"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_to_higher" />
+
+    <Button
+        android:id="@+id/btn_to_longer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="变宽"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_to_shorter" />
+
+    <Button
+        android:id="@+id/btn_to_narrower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="变窄"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_to_longer" />
+    <!--测试布局-->
+
+</android.support.constraint.ConstraintLayout>

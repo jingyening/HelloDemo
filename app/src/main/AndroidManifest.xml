@@ -35,6 +35,10 @@
         <activity android:name=".ViewDemoActivity" />
         <activity android:name=".fragment.FragmentContainerActivity" />
         <activity android:name="tmp.EmptyActivity" />
+
+        <activity
+            android:name=".MultiScreenAdapterActivity"></activity>
+
     </application>
 
 </manifest>
