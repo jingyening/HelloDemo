@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintHeight_percent="0.125"
+        app:layout_constraintHeight_percent="0.1"
         app:layout_constraintTop_toTopOf="@id/top_layout_guideline_bottom" />
 
     <android.support.constraint.Placeholder
@@ -21,7 +21,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/pb_minibar_progress"
-        app:layout_constraintHeight_percent="0.125" />
+        app:layout_constraintHeight_percent="0.1" />
 
     <FrameLayout
         android:id="@+id/fl_card_view_container"

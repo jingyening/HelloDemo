@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_main_activity_layout"
-    android:layout_width="match_parent"
+    android:layout_width="1000dp"
     android:layout_height="match_parent"
     android:background="#8292BD">
 
@@ -71,36 +71,8 @@
     <!-- 顶部布局  -->
 
     <!-- 中间布局  -->
-    <!--<include layout="@layout/main_content_layout" />-->
-    <android.support.constraint.Placeholder
-        android:id="@+id/card_container_placeHolder1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintTop_toTopOf="@id/top_layout_guideline_bottom" />
+  <!--  <include layout="@layout/main_content_layout" />-->
 
-    <android.support.constraint.Placeholder
-        android:id="@+id/card_container_placeHolder2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/pb_minibar_progress"
-        app:layout_constraintHeight_percent="0.1" />
-
-    <FrameLayout
-        android:id="@+id/fl_card_view_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginStart="48dp"
-        android:background="#ffaaff"
-        app:layout_constraintBottom_toTopOf="@id/card_container_placeHolder2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_container_placeHolder1">
-
-    </FrameLayout>
     <!-- 中间布局  -->
 
     <!-- 底部布局  -->

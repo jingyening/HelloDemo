@@ -3,6 +3,7 @@ package com.bruce.jing.hello.demo.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -302,4 +303,31 @@ public class CommonUtil {
         return context.getResources().getDisplayMetrics().density;
     }
 
+    public static int getSmallestWidthDp(Context context){
+        Configuration config = context.getResources().getConfiguration();
+        int sw = config.smallestScreenWidthDp;
+        return sw;
+    }
+
+    /**
+     * 窗口可用的屏幕宽度
+     * @param context
+     * @return
+     */
+    public static int getScreenWidthDp(Context context){
+        Configuration config = context.getResources().getConfiguration();
+        int sw = config.screenWidthDp;
+        return sw;
+    }
+
+    /**
+     * 窗口可用的屏幕高度
+     * @param context
+     * @return
+     */
+    public static int getScreenHeightDp(Context context){
+        Configuration config = context.getResources().getConfiguration();
+        int sh = config.screenHeightDp;
+        return sh;
+    }
 }

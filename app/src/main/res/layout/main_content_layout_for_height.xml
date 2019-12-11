@@ -15,7 +15,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:background="#ffaaff"
-        app:layout_constraintBottom_toTopOf="@id/music_progress_bar"
+        app:layout_constraintBottom_toTopOf="@id/pb_minibar_progress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_layout_guideline_bottom">
