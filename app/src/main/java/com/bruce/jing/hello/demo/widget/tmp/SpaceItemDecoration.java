@@ -1,9 +1,9 @@
 package com.bruce.jing.hello.demo.widget.tmp;
 
-import android.content.ClipData;
 import android.graphics.Rect;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 

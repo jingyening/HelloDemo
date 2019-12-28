@@ -10,7 +10,9 @@ import android.widget.TextView;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class MarqueeTextView extends android.support.v7.widget.AppCompatTextView {
+import androidx.appcompat.widget.AppCompatTextView;
+
+public class MarqueeTextView extends AppCompatTextView {
 
     private static final String TAG = "MarqueeTextView";
 

@@ -7,14 +7,14 @@ import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ContextThemeWrapper;
-import android.text.TextUtils;
+import android.os.Looper;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ContextThemeWrapper;
+
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Surface;
 import android.view.WindowManager;
-
 
 import java.io.File;
 import java.util.Formatter;
@@ -329,5 +329,11 @@ public class CommonUtil {
         Configuration config = context.getResources().getConfiguration();
         int sh = config.screenHeightDp;
         return sh;
+    }
+
+    public static void assertMainThread(){
+        if(Looper.myLooper() != Looper.getMainLooper()){
+            throw new IllegalThreadStateException("You must call on main Thread!!! ");
+        }
     }
 }

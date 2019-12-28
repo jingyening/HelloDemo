@@ -10,8 +10,6 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
@@ -24,6 +22,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;import androidx.annotation.Nullable;
 
 import static com.bruce.jing.hello.demo.widget.view.animation.FrameAnimationHelper.RepeatMode.MODE_INFINITE;
 import static com.bruce.jing.hello.demo.widget.view.animation.FrameAnimationHelper.RepeatMode.MODE_ONCE;

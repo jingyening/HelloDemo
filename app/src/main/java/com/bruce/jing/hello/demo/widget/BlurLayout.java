@@ -4,22 +4,23 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.graphics.Bitmap.Config;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Choreographer;
+import android.view.Choreographer.FrameCallback;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Choreographer.FrameCallback;
 import android.widget.FrameLayout;
 
 import com.bruce.jing.hello.demo.R;
+
 import java.lang.ref.WeakReference;
 
 public class BlurLayout extends FrameLayout {

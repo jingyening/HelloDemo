@@ -5,3 +5,4 @@
 /.idea
 /app/build
 /publish.sh
+app/app.iml

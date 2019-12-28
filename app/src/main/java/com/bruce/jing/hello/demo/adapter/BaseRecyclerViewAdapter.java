@@ -1,6 +1,5 @@
 package com.bruce.jing.hello.demo.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +7,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * RecyclerView基类，可设置外部点击事件监听

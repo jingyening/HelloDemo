@@ -6,7 +6,6 @@ import android.text.TextUtils;
 
 import com.bruce.jing.hello.demo.util.log.JLogUtil;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 

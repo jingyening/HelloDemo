@@ -1,16 +1,16 @@
 package com.bruce.jing.hello.demo.widget.view;
 
-import com.bruce.jing.hello.demo.util.log.JLogUtil;
-
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Region;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
+import android.graphics.Region;
 import android.view.View;
+
+import com.bruce.jing.hello.demo.util.log.JLogUtil;
 
 public class FullscreenGuideView extends View{
 

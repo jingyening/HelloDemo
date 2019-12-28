@@ -1,13 +1,14 @@
 package com.bruce.jing.hello.demo.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * -------------------------------------
@@ -29,13 +30,13 @@ public abstract class BaseRecyclerViewAdapter2<T> extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
 
         return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, final int position) {
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -63,7 +64,7 @@ public abstract class BaseRecyclerViewAdapter2<T> extends RecyclerView.Adapter {
         }
     }
 
-    public abstract void onItemClickImpl(int position, ViewHolder holder);
+    public abstract void onItemClickImpl(int position, RecyclerView.ViewHolder holder);
 
     public interface OnItemClickListener{
         void onItemClick(int position, View itemView);

@@ -13,9 +13,10 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.IntDef;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;import androidx.annotation.Nullable;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;

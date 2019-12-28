@@ -3,18 +3,17 @@ package com.bruce.jing.hello.demo.widget.view.image;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
 
 import com.bruce.jing.hello.demo.R;
 
@@ -26,7 +25,7 @@ import com.bruce.jing.hello.demo.R;
  * @author bruce jing
  * @date 2019/4/24
  */
-public class PressTintImageView extends android.support.v7.widget.AppCompatImageView {
+public class PressTintImageView extends AppCompatImageView {
 
     private static final String TAG = "PressTintImageView";
 

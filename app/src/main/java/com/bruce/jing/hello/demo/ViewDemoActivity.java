@@ -3,13 +3,15 @@ package com.bruce.jing.hello.demo;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
-import com.bruce.jing.hello.demo.adapter.BaseRecyclerViewAdapter;
 import com.bruce.jing.hello.demo.adapter.BaseRecyclerViewAdapter2;
 import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
 import com.bruce.jing.hello.demo.fragment.EmojiFragment;
@@ -57,7 +59,7 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_demo);
-        mRecyclerView = findViewById(R.id.rlv_mainPage);
+        mRecyclerView = (RecyclerView) findViewById(R.id.rlv_mainPage);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(llm);

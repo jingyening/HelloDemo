@@ -1,10 +1,11 @@
 package com.bruce.jing.hello.demo.widget.tmp.recycler;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 /**
  * @author bruce jing

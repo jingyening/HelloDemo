@@ -1,9 +1,6 @@
 package com.bruce.jing.hello.demo;
 
 import android.app.Application;
-import android.os.Looper;
-import android.util.Log;
-import android.util.Printer;
 
 import com.wonderkiln.blurkit.BlurKit;
 

@@ -14,7 +14,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-
 import com.bruce.jing.hello.demo.util.CommonUtil;
 import com.bruce.jing.hello.demo.util.log.JLogUtil;
 

@@ -3,10 +3,8 @@ package tmp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -25,6 +23,8 @@ import com.bruce.jing.hello.demo.widget.view.OnlineAvatarView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class TmpTestActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -54,7 +54,7 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 //        Log.d("brucetest","DisplayMetrics = "+ metrics.toString());
 //        float dimenValue = getResources().getDimension(R.dimen.test_dimen_value);
 //        Log.d("brucetest","dimenValue = "+dimenValue);
-        final ImageView iv = findViewById(R.id.imageView);
+        final ImageView iv = (ImageView) findViewById(R.id.imageView);
 
         iv.setOnClickListener(this);
 
@@ -75,12 +75,12 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
             data.add(new Object());
         }
 
-        OnlineAvatarView avatarView2 = findViewById(R.id.onlineAvatarView2);
+        OnlineAvatarView avatarView2 = (OnlineAvatarView) findViewById(R.id.onlineAvatarView2);
         avatarView2.setData(data);
 
 
-        textView = findViewById(R.id.textView);
-        TextView songName = findViewById(R.id.tv_player_songname);
+        textView = (TextView) findViewById(R.id.textView);
+        TextView songName = (TextView) findViewById(R.id.tv_player_songname);
         songName.setText("隐形的纪念 (the hidden version)");
 
     }

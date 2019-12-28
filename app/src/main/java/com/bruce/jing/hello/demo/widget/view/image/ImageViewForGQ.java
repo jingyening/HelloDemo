@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -17,7 +19,7 @@ import com.bruce.jing.hello.demo.R;
  * @author bruce jing
  * @date 2019/4/24
  */
-public class ImageViewForGQ extends android.support.v7.widget.AppCompatImageView {
+public class ImageViewForGQ extends AppCompatImageView {
 
     private static final String TAG = "ImageViewForGQ";
 

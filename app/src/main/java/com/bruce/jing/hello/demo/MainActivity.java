@@ -7,9 +7,10 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.MessageQueue;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
@@ -19,8 +20,6 @@ import com.bruce.jing.hello.demo.util.system.DeviceUtil;
 
 import java.util.Arrays;
 import java.util.List;
-
-import tmp.EmptyActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, BaseRecyclerViewAdapter2.OnItemClickListener{
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DeviceUtil.setStatusBarTransparent(this);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = findViewById(R.id.rlv_mainPage);
+        mRecyclerView = (RecyclerView) findViewById(R.id.rlv_mainPage);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);

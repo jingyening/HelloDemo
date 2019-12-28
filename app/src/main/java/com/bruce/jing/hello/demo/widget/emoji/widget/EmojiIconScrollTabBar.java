@@ -2,7 +2,6 @@ package com.bruce.jing.hello.demo.widget.emoji.widget;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -20,6 +19,8 @@ import com.bruce.jing.hello.demo.widget.emoji.entity.EmojiIconGroupEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.core.view.ViewCompat;
 
 public class EmojiIconScrollTabBar extends RelativeLayout {
 

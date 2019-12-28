@@ -4,23 +4,19 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-
-import com.bruce.jing.hello.demo.util.bitmap.BlurBitmapUtil;
-
-import java.lang.reflect.Field;
 
 /**
  * @author bruce jing
  * @date 2019/4/11
  */
-public class BlurView extends android.support.v7.widget.AppCompatImageView {
+public class BlurView extends AppCompatImageView {
 
     private static final String TAG = "BlurView";
 

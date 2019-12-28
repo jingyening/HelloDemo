@@ -5,15 +5,15 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.MessageQueue;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,7 +85,7 @@ public class MultiScreenAdapterActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mRootLayout = findViewById(R.id.cl_main_activity_layout);
+        mRootLayout = (ConstraintLayout) findViewById(R.id.cl_main_activity_layout);
         initHeadView();
         initHotRecommendView();
         initTestView();
@@ -95,7 +95,7 @@ public class MultiScreenAdapterActivity extends AppCompatActivity {
 
 
     private void initHeadView() {
-        mTypeTabRecyclerView = findViewById(R.id.rlv_type_tab);
+        mTypeTabRecyclerView = (RecyclerView) findViewById(R.id.rlv_type_tab);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.HORIZONTAL);
         mTypeTabRecyclerView.setLayoutManager(llm);
@@ -121,7 +121,7 @@ public class MultiScreenAdapterActivity extends AppCompatActivity {
         } else {
             LayoutInflater.from(this).inflate(R.layout.main_content_layout, mRootLayout, true);
         }
-        mFragmentContainer = findViewById(R.id.fl_card_view_container);
+        mFragmentContainer = (FrameLayout) findViewById(R.id.fl_card_view_container);
         LayoutInflater.from(this).inflate(R.layout.fragment_hot_recommend, mFragmentContainer, true);
         mHotRecommendRecyclerView = mFragmentContainer.findViewById(R.id.rlv_hot_recommend);
 
