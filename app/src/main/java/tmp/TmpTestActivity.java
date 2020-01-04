@@ -14,7 +14,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bruce.jing.hello.demo.BaseActivity;
 import com.bruce.jing.hello.demo.R;
+import com.bruce.jing.hello.demo.fragment.EmojiFragment;
+import com.bruce.jing.hello.demo.fragment.WTFragmentOp;
 import com.bruce.jing.hello.demo.util.StringUtils;
 import com.bruce.jing.hello.demo.util.log.JLogUtil;
 import com.bruce.jing.hello.demo.util.system.DeviceUtil;
@@ -24,16 +27,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-public class TmpTestActivity extends AppCompatActivity implements View.OnClickListener{
+public class TmpTestActivity extends BaseActivity implements View.OnClickListener{
 
-    private static final String LOG_TAG = "MainActivity";
 
     private static final String TAG = "TmpTestActivity";
 
     private Object mObject = new Object();
     TextView textView;
+
+    Fragment mFragment = new EmojiFragment();
 
     public static void launch(Context context) {
         Intent intent = new Intent();
@@ -58,9 +64,7 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 
         iv.setOnClickListener(this);
 
-
         JLogUtil.d("brucetest"," b = "+ Build.BRAND +" v = "+Build.VERSION.SDK_INT+" "+Build.MODEL);
-
         JLogUtil.d("brucetest", StringUtils.toString(Build.class));
         JLogUtil.d("brucetest",getFilesDir().getAbsolutePath());
         testSharePreferenceCreate();
@@ -77,7 +81,6 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 
         OnlineAvatarView avatarView2 = (OnlineAvatarView) findViewById(R.id.onlineAvatarView2);
         avatarView2.setData(data);
-
 
         textView = (TextView) findViewById(R.id.textView);
         TextView songName = (TextView) findViewById(R.id.tv_player_songname);
@@ -171,7 +174,25 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
 //                JLogUtil.d(TmpTestActivity.class,Integer.toBinaryString(-38));
 
 //                TmpTestActivity2.launch(this,1);
-                testStaticLayout();
+//                testStaticLayout();
+
+                WTFragmentOp instance = WTFragmentOp.getInstance(this);
+                instance.submitOnMainThreadSafely(this, new WTFragmentOp.AbsCommitAction(){
+                    @Override
+                    public void commitFragmentTransaction() {
+                        FragmentManager fm = getSupportFragmentManager();
+                        FragmentTransaction ft = fm.beginTransaction();
+                        Fragment emoji_fragment = fm.findFragmentByTag("emoji_fragment");
+                        if(emoji_fragment == null){
+                            ft.add(R.id.thumb111, mFragment,"emoji_fragment");
+                        }else{
+                            ft.show(emoji_fragment);
+                        }
+                        ft.commitAllowingStateLoss();
+                        fm.executePendingTransactions();
+                    }
+                }, WTFragmentOp.OpType.PENDING);
+
                 break;
 
             default:
@@ -183,5 +204,40 @@ public class TmpTestActivity extends AppCompatActivity implements View.OnClickLi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         TmpTestActivity3.launch(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG,"onStop");
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.hide(mFragment);
+        WTFragmentOp instance = WTFragmentOp.getInstance(this);
+        WTFragmentOp.AbsCommitAction absCommitAction = instance.generateCommitAction(fm, ft);
+        instance.submitOnMainThreadSafely(this, absCommitAction, WTFragmentOp.OpType.PENDING);
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG,"onSaveInstanceState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG,"onRestoreInstanceState");
+    }
+
+    @Override
+    public void onRemainActionOperate(List<WTFragmentOp.CommitAction> remainAction) {
+        super.onRemainActionOperate(remainAction);
+        Log.d(TAG,"onRemainActionOperate remainAction = "+remainAction.size());
+        for (WTFragmentOp.CommitAction commitAction : remainAction) {
+            WTFragmentOp.getInstance(this).submitOnMainThreadSafely(this,(WTFragmentOp.AbsCommitAction) commitAction, WTFragmentOp.OpType.PENDING);
+        }
     }
 }

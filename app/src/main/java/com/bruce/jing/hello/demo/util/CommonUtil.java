@@ -314,7 +314,7 @@ public class CommonUtil {
      * @param context
      * @return
      */
-    public static int getScreenWidthDp(Context context){
+    public static int getAvailableScreenWidthDp(Context context){
         Configuration config = context.getResources().getConfiguration();
         int sw = config.screenWidthDp;
         return sw;
@@ -325,7 +325,7 @@ public class CommonUtil {
      * @param context
      * @return
      */
-    public static int getScreenHeightDp(Context context){
+    public static int getAvailableScreenHeightDp(Context context){
         Configuration config = context.getResources().getConfiguration();
         int sh = config.screenHeightDp;
         return sh;

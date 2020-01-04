@@ -110,8 +110,8 @@ public class MultiScreenAdapterActivity extends AppCompatActivity {
         int screenHeight = CommonUtil.px2dip(this, CommonUtil.getScreenHeight(this));
         int screenWidth = CommonUtil.px2dip(this, CommonUtil.getScreenWidth(this));
         Log.d(TAG, "initHotRecommendView screenHeight = " + screenHeight + " , screenWidth = " + screenWidth);
-        int screenHeightDp = CommonUtil.getScreenHeightDp(this);
-        int screenWidthDp = CommonUtil.getScreenWidthDp(this);
+        int screenHeightDp = CommonUtil.getAvailableScreenHeightDp(this);
+        int screenWidthDp = CommonUtil.getAvailableScreenWidthDp(this);
         int smallestWidthDp = CommonUtil.getSmallestWidthDp(this);
         Log.d(TAG, "initHotRecommendView screenHeightDp = " + screenHeightDp + " , screenWidthDp = " + screenWidthDp + " . smallestWidthDp = " + smallestWidthDp);
 

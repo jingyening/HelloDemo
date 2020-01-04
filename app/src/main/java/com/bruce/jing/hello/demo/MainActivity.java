@@ -11,6 +11,8 @@ import android.os.MessageQueue;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import tmp.TmpTestActivity;
+
 import android.util.Log;
 import android.view.View;
 
@@ -104,8 +106,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case 1:
-                MultiScreenAdapterActivity.launch(this);
-//                TmpTestActivity.launch(this);
+//                MultiScreenAdapterActivity.launch(this);
+                TmpTestActivity.launch(this);
 //                EmptyActivity.launch(this);
                 Log.d(TAG, "onItemClick() called with: position = [" + position + "], itemView = [" + itemView + "]");
 //                Intent intent = new Intent();

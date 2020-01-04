@@ -68,7 +68,7 @@ import androidx.fragment.app.FragmentTransaction;
  */
 public final class WTFragmentOp implements Application.ActivityLifecycleCallbacks {
 
-    private static final String TAG = "WTFragmentManager";
+    private static final String TAG = "WTFragmentOp";
 
     private static volatile WTFragmentOp sInstance;
 
@@ -155,7 +155,7 @@ public final class WTFragmentOp implements Application.ActivityLifecycleCallback
      * @param ft
      * @return
      */
-    public CommitAction generateCommitAction(final FragmentManager fm, final FragmentTransaction ft){
+    public AbsCommitAction generateCommitAction(final FragmentManager fm, final FragmentTransaction ft){
         if(fm == null){
             Log.d(TAG,"generateSyncSingleCommitAction FragmentManager is null");
             return null;
@@ -190,7 +190,7 @@ public final class WTFragmentOp implements Application.ActivityLifecycleCallback
      * @param ft
      * @return
      */
-    public CommitAction generateCommitSingleAction(final FragmentTransaction ft){
+    public AbsCommitAction generateCommitSingleAction(final FragmentTransaction ft){
         if(ft == null){
             throw new IllegalArgumentException("generate SyncSingleCommitAction FragmentTransaction is null!!!");
         }

@@ -2,6 +2,7 @@ package com.bruce.jing.hello.demo;
 
 import android.app.Application;
 
+import com.bruce.jing.hello.demo.fragment.WTFragmentOp;
 import com.wonderkiln.blurkit.BlurKit;
 
 /**
@@ -22,5 +23,6 @@ public class App extends Application {
 //        });
         super.onCreate();
         BlurKit.init(this);
+        registerActivityLifecycleCallbacks(WTFragmentOp.getInstance(this));
     }
 }
