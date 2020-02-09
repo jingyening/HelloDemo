@@ -1,18 +1,14 @@
 package com.bruce.jing.hello.demo;
 
 import android.content.ComponentName;
+import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.MessageQueue;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import tmp.TmpTestActivity;
-
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 
@@ -22,6 +18,11 @@ import com.bruce.jing.hello.demo.util.system.DeviceUtil;
 
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import tmp.TmpTestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, BaseRecyclerViewAdapter2.OnItemClickListener{
 
@@ -106,8 +107,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case 1:
+//                TmpTestActivity.launch(this);
+
+                Intent intent = new Intent();
+
+                intent.setAction(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(intent);
+
 //                MultiScreenAdapterActivity.launch(this);
-                TmpTestActivity.launch(this);
 //                EmptyActivity.launch(this);
                 Log.d(TAG, "onItemClick() called with: position = [" + position + "], itemView = [" + itemView + "]");
 //                Intent intent = new Intent();

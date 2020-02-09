@@ -336,4 +336,8 @@ public class CommonUtil {
             throw new IllegalThreadStateException("You must call on main Thread!!! ");
         }
     }
+    public String getViewIdNameById(Context context,int id){
+        return context.getResources().getResourceName(id);
+    }
+
 }
