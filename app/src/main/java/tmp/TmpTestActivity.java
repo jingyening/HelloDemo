@@ -1,5 +1,6 @@
 package tmp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -44,6 +45,9 @@ public class TmpTestActivity extends BaseActivity implements View.OnClickListene
     public static void launch(Context context) {
         Intent intent = new Intent();
         intent.setClass(context,TmpTestActivity.class);
+        if(!(context instanceof Activity)){
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
         context.startActivity(intent);
     }
     @Override

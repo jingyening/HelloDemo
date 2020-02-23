@@ -25,6 +25,9 @@ public class TmpTestActivity2 extends AppCompatActivity implements View.OnClickL
     public static void launch(Context context) {
         Intent intent = new Intent();
         intent.setClass(context,TmpTestActivity2.class);
+        if(!(context instanceof Activity)){
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
         context.startActivity(intent);
     }
 

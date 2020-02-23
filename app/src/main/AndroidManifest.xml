@@ -3,6 +3,8 @@
     package="com.bruce.jing.hello.demo">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
     <application
         android:name=".App"
@@ -36,8 +38,7 @@
         <activity android:name=".fragment.FragmentContainerActivity" />
         <activity android:name="tmp.EmptyActivity" />
 
-        <activity
-            android:name=".MultiScreenAdapterActivity"></activity>
+        <activity android:name=".MultiScreenAdapterActivity"></activity>
 
 
         <service

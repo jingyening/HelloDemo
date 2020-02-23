@@ -6,15 +6,27 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Process;
 import android.provider.Settings;
-import android.support.v7.widget.DialogTitle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.Toast;
 
+import com.bruce.jing.hello.demo.R;
 import com.bruce.jing.hello.demo.util.log.JLogUtil;
 
 import java.util.List;
@@ -38,18 +50,30 @@ public class AccessibilityDemoService extends AccessibilityService {
      */
     public static final String PKG_NAME_WEWORK = "com.tencent.wework";
 
+    /**
+     * com.hexin.plat.android:id/button_container
+     */
+    public static final String BUY = "买 入";
+    /**
+     * com.hexin.plat.android:id/button_container
+     */
+    public static final String SELL = "卖 出";
+
+
+
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        String pkgName = event.getPackageName().toString();
+        String pkgName = event.getPackageName() == null ? "null" : event.getPackageName().toString();
         int eventType = event.getEventType();
         AccessibilityNodeInfo source = event.getSource();
-        String className = event.getClassName().toString();
+        String className = event.getClassName() == null ? "null" : event.getClassName().toString();
         List<CharSequence> text = event.getText();
         // AccessibilityOperator封装了辅助功能的界面查找与模拟点击事件等操作
-        JLogUtil.d(TAG, "onAccessibilityEvent eventType: " + eventType + " pkgName: " + pkgName);
+        JLogUtil.d(TAG, "onAccessibilityEvent eventType: " + eventType + " pkgName: " + pkgName + " ,className = " + className);
         switch (eventType) {
             case AccessibilityEvent.TYPE_VIEW_CLICKED:
+                handleViewClick(event);
                 break;
             case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
                 handleNotification(event);
@@ -71,6 +95,111 @@ public class AccessibilityDemoService extends AccessibilityService {
         }
     }
 
+    private void handleViewClick(AccessibilityEvent event) {
+        List<CharSequence> texts = event.getText();
+        if (!texts.isEmpty()) {
+            for (CharSequence text : texts) {
+                String content = text.toString();
+                //如果微信红包的提示信息,则模拟点击进入相应的聊天窗口
+                Log.d(TAG, "handleViewClick content = " + content);
+                if (content.contains(BUY) || content.contains(SELL)) {
+                    JLogUtil.d(TAG, "handleViewClick 卖出 买入");
+                    AccessibilityNodeInfo rootInActiveWindow = getRootInActiveWindow();
+                    List<AccessibilityNodeInfo> button_container = rootInActiveWindow.findAccessibilityNodeInfosByViewId("button_container");
+                    JLogUtil.d(TAG, "handleViewClick button_container size = " + button_container.size());
+                    if (!button_container.isEmpty()) {
+
+                        for (int i = 0; i < button_container.size(); i++) {
+                            AccessibilityNodeInfo accessibilityNodeInfo = button_container.get(i);
+                        }
+                    }
+
+
+                    JLogUtil.d(TAG, "handleViewClick process = " + Process.myPid() + ", " + Process.myTid() + " , " + Process.myUid());
+
+                    Toast.makeText(this, "先看规则再交易!!!", Toast.LENGTH_LONG).show();
+                    // 获取WindowManager服务
+                    final WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+
+                    // 设置LayoutParam
+                    WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+                    } else {
+                        layoutParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+                    }
+                    layoutParams.format = PixelFormat.RGBA_8888;
+                    layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+                    layoutParams.height = 500;
+                    layoutParams.x = 0;
+                    layoutParams.y = 300;
+//                    layoutParams.flags = ;
+
+                    // 将悬浮窗控件添加到WindowManager
+                    final ViewGroup group = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.activity_rules, null, false);
+                    windowManager.addView(group, layoutParams);
+
+
+                    final GestureDetector detector = new GestureDetector(this, new GestureDetector.OnGestureListener() {
+                        @Override
+                        public boolean onDown(MotionEvent e) {
+                            return false;
+                        }
+
+                        @Override
+                        public void onShowPress(MotionEvent e) {
+
+                        }
+
+                        @Override
+                        public boolean onSingleTapUp(MotionEvent e) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                            return false;
+                        }
+
+                        @Override
+                        public void onLongPress(MotionEvent e) {
+                            group.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                            return false;
+                        }
+                    });
+                    final View view = group.findViewById(R.id.sv_content);
+                    view.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            view.setVisibility(View.GONE);
+                            return true;
+                        }
+                    });
+                    view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            JLogUtil.d(TAG,"handleViewClick onClick");
+                        }
+                    });
+                    view.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            JLogUtil.d(TAG,"handleViewClick onTouch");
+                            return detector.onTouchEvent(event);
+                        }
+                    });
+
+
+
+                }
+            }
+        }
+    }
+
 
     /**
      * 处理通知栏信息
@@ -85,13 +214,16 @@ public class AccessibilityDemoService extends AccessibilityService {
             for (CharSequence text : texts) {
                 String content = text.toString();
                 //如果微信红包的提示信息,则模拟点击进入相应的聊天窗口
-                if (content.contains("[微信红包]")) {
+                Log.d(TAG, "handleNotification content = " + content);
+                if (content.contains("[微信红包]") || content.contains("企业微信红包") || content.contains("已连接到")) {
                     if (event.getParcelableData() != null && event.getParcelableData() instanceof Notification) {
                         Notification notification = (Notification) event.getParcelableData();
                         PendingIntent pendingIntent = notification.contentIntent;
                         try {
                             pendingIntent.send();
+                            Log.d(TAG, "handleNotification send open");
                         } catch (PendingIntent.CanceledException e) {
+                            JLogUtil.e(TAG, "pendingIntent.send exception");
                             e.printStackTrace();
                         }
                     }
@@ -190,10 +322,11 @@ public class AccessibilityDemoService extends AccessibilityService {
 
     @Override
     protected void onServiceConnected() {
+        JLogUtil.d(TAG, "onServiceConnected");
         AccessibilityServiceInfo serviceInfo = new AccessibilityServiceInfo();
         serviceInfo.eventTypes = AccessibilityEvent.TYPES_ALL_MASK;
         serviceInfo.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC;
-        serviceInfo.packageNames = new String[]{PKG_NAME_TONGHUASUN, PKG_NAME_WECHAT, PKG_NAME_WEWORK};
+        serviceInfo.packageNames = new String[]{PKG_NAME_TONGHUASUN/*, PKG_NAME_WECHAT, PKG_NAME_WEWORK, "com.android.settings"*/};
         serviceInfo.notificationTimeout = 100;
         setServiceInfo(serviceInfo);
     }
@@ -235,5 +368,6 @@ public class AccessibilityDemoService extends AccessibilityService {
         }
         return false;
     }
+
 
 }
