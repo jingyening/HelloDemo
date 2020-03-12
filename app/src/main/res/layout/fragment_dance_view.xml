@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <com.bruce.jing.hello.demo.widget.view.DanceView
+        android:id="@+id/danceView"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="#ff0000"
+        app:dancer_color="#FF44EFCD"
+        app:has_round_corner="true"
+        app:item_space="6dp"
+        app:item_width="3dp" />
+
+    <Button
+        android:id="@+id/btn_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/danceView"
+        android:text="显示" />
+
+    <Button
+        android:id="@+id/btn_hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_show"
+        android:text="隐藏" />
+
+    <Button
+        android:id="@+id/btn_dance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_hide"
+        android:text="跳舞" />
+
+
+</RelativeLayout>

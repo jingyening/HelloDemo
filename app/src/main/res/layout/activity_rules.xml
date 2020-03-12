@@ -15,12 +15,19 @@
             android:id="@+id/tv_rules"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="规则\n规则\n规则\n规则\n规则\n规则\n规则\n规则"
             android:textColor="#ff000000"
+            android:text="@string/rules_text"
             android:textSize="30dp">
 
+            <!--android:text="规则\n规则\n规则\n规则\n规则\n规则\n规则\n规则"-->
         </TextView>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
 </RelativeLayout>

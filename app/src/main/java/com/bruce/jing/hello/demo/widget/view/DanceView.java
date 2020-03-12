@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Cap;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
+import com.bruce.jing.hello.demo.R;
 import com.bruce.jing.hello.demo.util.MathUtil;
 
 /**
@@ -21,6 +23,10 @@ import com.bruce.jing.hello.demo.util.MathUtil;
  */
 public class DanceView extends View {
     public static final String TAG = "DanceView";
+
+    private static final int DEFAULT_COLOR = 0xFF44EFCD;
+    private static final float DEFAULT_ITEM_WIDTH = 3;
+    private static final float DEFAULT_ITEM_SPACE = 6;
 
     private static final int ITEM_COUNT = 4;
     private static final int DANCE_ANIM_DURATION = 2000;
@@ -33,15 +39,15 @@ public class DanceView extends View {
     /**
      * 每个item的宽度，单位dp
      */
-    private int mItemWidth = 3;
+    private float mItemWidth = DEFAULT_ITEM_WIDTH;
     /**
      * item的圆角半径，单位dp
      */
-    private float mRadius = 1.5f;
+    private float mRadius = DEFAULT_ITEM_WIDTH / 2;
     /**
      * 每个item之间的间隔距离，单位dp
      */
-    private int mItemSpace = 6;
+    private float mItemSpace = DEFAULT_ITEM_SPACE;
     /**
      * 竖线的最大高度，单位dp
      */
@@ -61,10 +67,10 @@ public class DanceView extends View {
      * 用来存储当前竖线的高度
      */
     private int[] mCurrentHeights = new int[ITEM_COUNT];
+
     private ValueAnimator mDanceAnimator;
     private ValueAnimator mShowHideAnimator;
     private State mState = State.HIDE;
-//    private BezierEvaluator mEvaluator = new BezierEvaluator(0.445f, 0.05f, 0.55f, 0.95f);
 
 
     public DanceView(Context context) {
@@ -77,6 +83,17 @@ public class DanceView extends View {
 
     public DanceView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.DanceView);
+        mColor = typedArray.getColor(R.styleable.DanceView_dancer_color, DEFAULT_COLOR);
+        mItemWidth = typedArray.getDimension(R.styleable.DanceView_item_width, DEFAULT_ITEM_WIDTH);
+        mItemSpace = typedArray.getDimension(R.styleable.DanceView_item_space, DEFAULT_ITEM_SPACE);
+        boolean hasRoundCorner = typedArray.getBoolean(R.styleable.DanceView_has_round_corner, true);
+        if (hasRoundCorner) {
+            mRadius = mItemWidth / 2;
+        } else {
+            mRadius = 0;
+        }
+        typedArray.recycle();
         init();
     }
 
@@ -160,7 +177,8 @@ public class DanceView extends View {
     }
 
     private void initParams() {
-        mContentWidth = mItemWidth * ITEM_COUNT + mItemSpace * (ITEM_COUNT - 1);
+
+        mContentWidth = (int) (mItemWidth * ITEM_COUNT + mItemSpace * (ITEM_COUNT - 1));
         mContentHeight = mItemMaxHeight;
 
     }
@@ -248,6 +266,7 @@ public class DanceView extends View {
 
     /**
      * 获取每个竖线变化后的高度
+     *
      * @param i
      * @return
      */

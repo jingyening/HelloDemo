@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.bruce.jing.hello.demo.adapter.BaseRecyclerViewAdapter2;
 import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
+import com.bruce.jing.hello.demo.fragment.DanceViewFragment;
 import com.bruce.jing.hello.demo.fragment.EmojiFragment;
 import com.bruce.jing.hello.demo.fragment.FragmentContainerActivity;
 import com.bruce.jing.hello.demo.fragment.IndicatorFragment;
@@ -41,7 +42,8 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
             "进度条",
             "表情",
             "指示条",
-            "按压"
+            "按压",
+            "音乐跳舞",
     };
 
 
@@ -87,6 +89,9 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
                 break;
             case 3:
                 FragmentContainerActivity.startFragment(this, IndicatorFragment.class,null);
+                break;
+            case 5:
+                FragmentContainerActivity.startFragment(this, DanceViewFragment.class,null);
                 break;
         }
     }

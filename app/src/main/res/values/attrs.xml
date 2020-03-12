@@ -34,19 +34,18 @@
 
     <!--表情面板-->
     <declare-styleable name="EmojiIconPanel">
-        <attr name="bigEmojiIconRows" format="integer"/>
-        <attr name="emojiIconColumns" format="integer"/>
+        <attr name="bigEmojiIconRows" format="integer" />
+        <attr name="emojiIconColumns" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="ChatExtendPanel">
-        <attr name="numColumns" format="integer"/>
+        <attr name="numColumns" format="integer" />
     </declare-styleable>
 
 
     <declare-styleable name="IndicatorView">
-        <attr name="dot_color" format="color"/>
+        <attr name="dot_color" format="color" />
     </declare-styleable>
-
 
 
     <declare-styleable name="BlurLayout">
@@ -57,24 +56,24 @@
 
 
     <declare-styleable name="IndicatorDotView">
-        <attr name="shape_type" format="enum" >
-            <enum name="half_oval" value="1"/>
-            <enum name="oval" value="2"/>
+        <attr name="shape_type" format="enum">
+            <enum name="half_oval" value="1" />
+            <enum name="oval" value="2" />
         </attr>
     </declare-styleable>
 
-  <!--  <declare-styleable name="ImageViewForGQ">
-        <attr name="pressColor" format="color"/>
-        <attr name="pressColorMode" format="integer"/>
-        <attr name="disableColor" format="color"/>
-        <attr name="disableColorMode" format="integer"/>
-    </declare-styleable>-->
+    <!--  <declare-styleable name="ImageViewForGQ">
+          <attr name="pressColor" format="color"/>
+          <attr name="pressColorMode" format="integer"/>
+          <attr name="disableColor" format="color"/>
+          <attr name="disableColorMode" format="integer"/>
+      </declare-styleable>-->
 
     <declare-styleable name="PressTintImageView">
-        <attr name="pressColor" format="color"/>
-        <attr name="pressColorMode" format="integer"/>
-        <attr name="disableColor" format="color"/>
-        <attr name="disableColorMode" format="integer"/>
+        <attr name="pressColor" format="color" />
+        <attr name="pressColorMode" format="integer" />
+        <attr name="disableColor" format="color" />
+        <attr name="disableColorMode" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="SquareFrameLayout">
@@ -82,6 +81,13 @@
             <enum name="width" value="0"></enum>
             <enum name="height" value="1"></enum>
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DanceView">
+        <attr name="dancer_color" format="color"></attr>
+        <attr name="item_width" format="dimension"></attr>
+        <attr name="item_space" format="dimension"></attr>
+        <attr name="has_round_corner" format="boolean"></attr>
     </declare-styleable>
 
 </resources>

@@ -7,5 +7,5 @@
     <string name="release_refresh">释放刷新</string>
     <string name="refresh_complete">刷新完成</string>
     <string name="pull_load_more">上拉加载更多</string>
-
+    <string name="rules_text">买入检查\n1.不追高：涨幅不能超过3%\n2.不可单只全仓，单只持仓不能超过30%\n3.上午大跌宜买（加仓）\n4.下午大跌次日买\n5.犹豫（害怕）买不买时买入\n6.买入是否设置了止盈价\n\n卖出检查\n1.犹豫（贪心）卖出时卖出\n2.达到目标价格\n3.利好兑现时减仓或者清仓\n4.大涨时卖出：上午大涨宜减仓，下午大涨只减仓\n5.22号以后谨慎买入（月末效应）</string>
 </resources>

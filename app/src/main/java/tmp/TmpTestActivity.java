@@ -1,5 +1,6 @@
 package tmp;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.text.TextPaint;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +25,7 @@ import com.bruce.jing.hello.demo.util.StringUtils;
 import com.bruce.jing.hello.demo.util.log.JLogUtil;
 import com.bruce.jing.hello.demo.util.system.DeviceUtil;
 import com.bruce.jing.hello.demo.widget.view.OnlineAvatarView;
+import com.bruce.jing.hello.demo.widget.view.animation.evaluator.BezierEvaluator;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -89,6 +92,8 @@ public class TmpTestActivity extends BaseActivity implements View.OnClickListene
         textView = (TextView) findViewById(R.id.textView);
         TextView songName = (TextView) findViewById(R.id.tv_player_songname);
         songName.setText("隐形的纪念 (the hidden version)");
+
+
 
     }
 

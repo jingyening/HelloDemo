@@ -107,14 +107,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case 1:
-//                TmpTestActivity.launch(this);
+                TmpTestActivity.launch(this);
 
                 Intent intent = new Intent();
 
-                intent.setAction(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                startActivity(intent);
+//                intent.setAction(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
 
 //                MultiScreenAdapterActivity.launch(this);
 //                EmptyActivity.launch(this);
