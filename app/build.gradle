@@ -43,8 +43,34 @@ android {
         renderscriptSupportModeEnabled true
 
     }
-    buildTypes {
+
+
+    signingConfigs {
         release {
+            storeFile file("../signature/Music_Release.jks")
+            storePassword '123456'
+            keyAlias 'Music_Release'
+            keyPassword '123456'
+        }
+
+        debug {
+            storeFile file("../signature/Music_Debug.jks")
+            storePassword '123456'
+            keyAlias 'Music_Debug'
+            keyPassword '123456'
+        }
+
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

@@ -130,9 +130,9 @@ public class AccessibilityDemoService extends AccessibilityService {
                     }
                     layoutParams.format = PixelFormat.RGBA_8888;
                     layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-                    layoutParams.height = 500;
+                    layoutParams.height = 1000;
                     layoutParams.x = 0;
-                    layoutParams.y = 300;
+                    layoutParams.y = 0;
 //                    layoutParams.flags = ;
 
                     // 将悬浮窗控件添加到WindowManager
