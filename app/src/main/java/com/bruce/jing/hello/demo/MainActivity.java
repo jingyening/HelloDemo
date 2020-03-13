@@ -109,9 +109,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 1:
                 TmpTestActivity.launch(this);
 
-                Intent intent = new Intent();
 
-//                intent.setAction(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+//                intent.setAction(Settings.ACTION_ACCESSIBILITY_SETTINGS);GIT
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                startActivity(intent);
 

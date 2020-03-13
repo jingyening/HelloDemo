@@ -19,7 +19,16 @@ import com.bruce.jing.hello.demo.R;
 import com.bruce.jing.hello.demo.util.MathUtil;
 
 /**
- *
+ * 贝塞尔曲线
+ * https://www.jianshu.com/p/c2568ca445a0
+ * 三阶贝塞尔曲线（B为曲线轨迹，P0为起始点，P1为左控制点，P2为右控制点，P3为结束点。t的取值范围为0-1之间）
+ * B(t) = P0*(1-t)^3+3*P1*t*(1-t)^2+3*P2*t^2*(1-t)+P3*t^3
+ * <p>
+ * 缓动函数速查表
+ * http://www.xuanfengge.com/easeing/easeing/
+ * <p>
+ * easeInOutSine ==>cubic-bezier(0.445, 0.05, 0.55, 0.95)
+ * easeInOutCubic
  */
 public class DanceView extends View {
     public static final String TAG = "DanceView";
@@ -110,7 +119,7 @@ public class DanceView extends View {
         mPaint.setStyle(Style.FILL);
         mPaint.setFilterBitmap(false);
 //        mPaint.setPathEffect(new DashPathEffect(new float[]{3, 2}, 0));
-        mPaint.setStrokeWidth(getDrawingWidth() / 10);
+//        mPaint.setStrokeWidth(getDrawingWidth() / 10);
         mPaint.setAntiAlias(true);
         mPaint.setColor(mColor);
         mPaint.setStrokeCap(Cap.ROUND);

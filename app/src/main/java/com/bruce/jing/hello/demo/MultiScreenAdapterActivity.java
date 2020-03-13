@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
@@ -26,7 +27,9 @@ import com.bruce.jing.hello.demo.adapter.GridSongCardAdapter;
 import com.bruce.jing.hello.demo.adapter.LinearSongCardAdapter;
 import com.bruce.jing.hello.demo.adapter.TitleAdapter;
 import com.bruce.jing.hello.demo.util.CommonUtil;
+import com.bruce.jing.hello.demo.util.log.JLogUtil;
 import com.bruce.jing.hello.demo.widget.tmp.SpaceItemDecoration;
+import com.bruce.jing.hello.demo.widget.view.ReusableViewStub;
 
 import java.util.Arrays;
 
@@ -349,6 +352,11 @@ public class MultiScreenAdapterActivity extends AppCompatActivity {
                 animator.start();
             }
         });
+
+        ReusableViewStub wtViewStub = findViewById(R.id.reusable_vs_test);
+        JLogUtil.d(TAG,"wtViewStub = "+wtViewStub);
+        ViewStub viewStub = findViewById(R.id.vs_test);
+        JLogUtil.d(TAG,"viewStub = "+viewStub);
 
     }
 
