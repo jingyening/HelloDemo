@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':AutoUnitTest'
 println 'This is executed during the initialization phase.'+this.getSettings().getClass().getSuperclass()
 
 this.getSettings().getGradle().addBuildListener(new BuildListener() {
