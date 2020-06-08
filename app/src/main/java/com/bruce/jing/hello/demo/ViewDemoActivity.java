@@ -18,6 +18,7 @@ import com.bruce.jing.hello.demo.fragment.DanceViewFragment;
 import com.bruce.jing.hello.demo.fragment.EmojiFragment;
 import com.bruce.jing.hello.demo.fragment.FragmentContainerActivity;
 import com.bruce.jing.hello.demo.fragment.IndicatorFragment;
+import com.bruce.jing.hello.demo.fragment.MarqueeTextViewFragment;
 import com.bruce.jing.hello.demo.fragment.RippleFragment;
 
 import java.util.Arrays;
@@ -44,6 +45,7 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
             "指示条",
             "按压",
             "音乐跳舞",
+            "跑马灯"
     };
 
 
@@ -92,6 +94,9 @@ public class ViewDemoActivity extends AppCompatActivity implements BaseRecyclerV
                 break;
             case 5:
                 FragmentContainerActivity.startFragment(this, DanceViewFragment.class,null);
+                break;
+            case 6:
+                FragmentContainerActivity.startFragment(this, MarqueeTextViewFragment.class,null);
                 break;
         }
     }

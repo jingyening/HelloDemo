@@ -90,4 +90,8 @@
         <attr name="has_round_corner" format="boolean"></attr>
     </declare-styleable>
 
+    <declare-styleable name="MarqueeTextView">
+        <attr name="invalidate_interval" format="integer"></attr>
+    </declare-styleable>
+
 </resources>

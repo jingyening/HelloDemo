@@ -41,7 +41,7 @@
         <activity android:name=".MultiScreenAdapterActivity"></activity>
 
 
-        <service
+    <!--    <service
             android:name=".accessibility.AccessibilityDemoService"
             android:enabled="true"
             android:exported="true"
@@ -56,7 +56,7 @@
                 android:resource="@xml/access_backkey_service" />
 
 
-        </service>
+        </service>-->
     </application>
 
 </manifest>
