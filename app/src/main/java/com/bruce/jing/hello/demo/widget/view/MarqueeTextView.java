@@ -176,9 +176,9 @@ public class MarqueeTextView extends AppCompatTextView {
                     if(isFocused() || isSelected()){
 
                         Class choreographerCls = choreographer.getClass();
-                        Method getFrameTimeMethod = choreographerCls.getDeclaredMethod("getFrameTime", null);
+                        Method getFrameTimeMethod = choreographerCls.getDeclaredMethod("getFrameTime", new Class[]{});
                         getFrameTimeMethod.setAccessible(true);
-                        long currentMs = (long)getFrameTimeMethod.invoke(choreographer,null);
+                        long currentMs = (long)getFrameTimeMethod.invoke(choreographer,new Object[]{});
                         long mLastAnimationMs = (long)mLastAnimationMsField.get(marqueeObject);
                         long deltaMs = currentMs - mLastAnimationMs;
                         mLastAnimationMsField.set(marqueeObject, currentMs);

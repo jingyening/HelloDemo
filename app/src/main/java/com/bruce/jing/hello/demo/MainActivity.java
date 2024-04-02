@@ -1,16 +1,18 @@
 package com.bruce.jing.hello.demo;
 
 import android.content.ComponentName;
-import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.MessageQueue;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bruce.jing.hello.demo.adapter.BaseRecyclerViewAdapter2;
 import com.bruce.jing.hello.demo.adapter.SimpleItemAdapter;
@@ -19,9 +21,6 @@ import com.bruce.jing.hello.demo.util.system.DeviceUtil;
 import java.util.Arrays;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import tmp.TmpTestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, BaseRecyclerViewAdapter2.OnItemClickListener{

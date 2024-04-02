@@ -19,7 +19,6 @@ package com.bruce.jing.hello.demo.widget.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.v7.widget.DialogTitle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;

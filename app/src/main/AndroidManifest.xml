@@ -57,6 +57,12 @@
 
 
         </service>-->
+
+        <service android:name=".DebugService">
+            <intent-filter>
+                <action android:name="com.bruce.jing.hello.demo.DebugService"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -1,9 +1,10 @@
 package com.bruce.jing.hello.demo;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.bruce.jing.hello.demo.fragment.WTFragmentOp;
-import com.wonderkiln.blurkit.BlurKit;
+import com.bruce.jing.hello.demo.widget.BlurKit;
 
 /**
  * @author bruce jing
@@ -11,10 +12,12 @@ import com.wonderkiln.blurkit.BlurKit;
  */
 public class App extends Application {
 
+    private static Context globalContext = null;
     private static final String TAG = "App";
 
     @Override
     public void onCreate() {
+        globalContext = this.getApplicationContext();
 //        Looper.getMainLooper().setMessageLogging(new Printer() {
 //            @Override
 //            public void println(String x) {
@@ -24,5 +27,9 @@ public class App extends Application {
         super.onCreate();
         BlurKit.init(this);
         registerActivityLifecycleCallbacks(WTFragmentOp.getInstance(this));
+    }
+
+    public static Context getGlobalContext(){
+        return globalContext;
     }
 }

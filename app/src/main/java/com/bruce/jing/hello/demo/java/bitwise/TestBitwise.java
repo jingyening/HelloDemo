@@ -1,5 +1,7 @@
 package com.bruce.jing.hello.demo.java.bitwise;
 
+import android.util.Log;
+
 import com.bruce.jing.hello.demo.util.log.JLogUtil;
 
 /**
@@ -86,8 +88,8 @@ public class TestBitwise {
     public void testBitwise(){
         //~
         int i = 37;
-        JLogUtil.d(TestBitwise.class,Integer.toBinaryString(i));//00000000 00000000 00000000 00100101
-        JLogUtil.d(TestBitwise.class,Integer.toBinaryString(~i));//11111111 11111111 11111111 11011010
+        JLogUtil.d(TestBitwise.class.getName(),Integer.toBinaryString(i));//00000000 00000000 00000000 00100101
+        JLogUtil.d(TestBitwise.class.getName(),Integer.toBinaryString(~i));//11111111 11111111 11111111 11011010
 
     }
 }

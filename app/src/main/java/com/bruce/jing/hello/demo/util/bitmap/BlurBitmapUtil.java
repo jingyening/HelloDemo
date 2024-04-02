@@ -12,10 +12,10 @@ import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.view.View;
 
-import com.bruce.jing.hello.demo.util.log.JLogUtil;
-
 import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
+
+import com.bruce.jing.hello.demo.util.log.JLogUtil;
 
 
 public class BlurBitmapUtil {

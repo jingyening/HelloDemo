@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import androidx.annotation.NonNull;import androidx.annotation.Nullable;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.recyclerview.widget.RecyclerView;

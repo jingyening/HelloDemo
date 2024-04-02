@@ -102,7 +102,7 @@ public class FullscreenGuideView extends View{
     @Override
     protected void dispatchDraw(Canvas canvas) {
 
-        JLogUtil.e(FullscreenGuideView.class, "FullscreenGuideView dispatchDraw");
+        JLogUtil.e(FullscreenGuideView.class.getName(), "FullscreenGuideView dispatchDraw");
 
         canvas.drawCircle(mCircleX, mCircleY, mCenterCircleRadius, mCenterCirclePaint);
         canvas.save();
